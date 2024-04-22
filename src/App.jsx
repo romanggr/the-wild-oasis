@@ -17,6 +17,7 @@ import Booking from "./pages/Booking";
 import Checkin from "./pages/Checkin";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import { DarkModeProvider } from "./context/DarkModeContext";
+import {BurgerProvider} from "./context/BurgerContext.jsx";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -30,7 +31,7 @@ const queryClient = new QueryClient({
 function App() {
   return (
     <DarkModeProvider>
-
+      <BurgerProvider>
       <QueryClientProvider client={queryClient}>
         <ReactQueryDevtools />
         <GlobalStyles />
@@ -74,6 +75,7 @@ function App() {
             }
           }} />
       </QueryClientProvider>
+    </BurgerProvider>
     </DarkModeProvider>
 
   );

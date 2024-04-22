@@ -2,6 +2,8 @@ import styled from "styled-components";
 import Logo from "./Logo";
 import MainNav from "./MainNav";
 import Uploader from "../data/Uploader";
+import {useIsMobile} from "../hooks/useIsMobile.js";
+import {useBurger} from "../context/BurgerContext.jsx";
 
 const StyledSidebar = styled.aside`
   background-color: var(--color-grey-0);
@@ -12,15 +14,27 @@ const StyledSidebar = styled.aside`
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
+  
+
+  @media(max-width: 768px){
+    position: absolute;
+    height: 100vh;
+    margin-top: 7.9rem;
+  }
 `;
 
 function Sidebar() {
+    const {isBurger} = useBurger();
+    const {isMobile} = useIsMobile();
+
     return (
-        <StyledSidebar>
-            <Logo />
-            <MainNav />
-            {/* <Uploader /> */}
-        </StyledSidebar>
+        (!isMobile || (isMobile && isBurger)) ? (
+            <StyledSidebar>
+                {isMobile ? null : <Logo/>}
+                <MainNav/>
+                 {/*<Uploader />*/}
+            </StyledSidebar>
+        ) : null
     );
 }
 
