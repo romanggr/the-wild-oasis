@@ -1,7 +1,12 @@
-import React, {useState} from 'react';
-import styled from "styled-components";
-import {useBurger} from "../context/BurgerContext.jsx";
+import React, { useState } from 'react';
+import styled, { css, keyframes } from "styled-components";
+import { useBurger } from "../context/BurgerContext.jsx";
 
+const crossAnimation = keyframes`
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(45deg); }
+  100% { transform: rotate(45deg); }
+`;
 
 const StyledBurgerContainer = styled.div`
   width: 4rem;
@@ -19,6 +24,7 @@ const StyledBurger = styled.div`
   height: 3px;
   background: var(--color-brand-600);
   position: relative;
+  transition: background-color 0.3s ease;
 
   &::before,
   &::after {
@@ -30,22 +36,38 @@ const StyledBurger = styled.div`
   }
 
   &::before {
-    top: -8px; 
+    top: -8px;
+    transition: top 0.3s ease, transform 0.3s ease;
   }
 
   &::after {
-    bottom: -8px; 
+    bottom: -8px;
+    transition: bottom 0.3s ease, transform 0.3s ease;
   }
+  
+  ${({ isactive }) => isactive === "true" && css`
+    background: transparent;
+    
+    &::before {
+      top: 0;
+      transform: rotate(90deg);
+    }
+    &::after {
+      bottom: 0;
+      transform: rotate(-180deg);
+    }
+    animation: ${crossAnimation} 0.3s forwards;
+  `}
 `;
 
-
 function Burger() {
-    const {toggleBurger} = useBurger();
+    const { toggleBurger, isBurger } = useBurger();
+
+
     return (
         <StyledBurgerContainer onClick={toggleBurger}>
-          <StyledBurger />
+            <StyledBurger isactive={isBurger? "true" : "false"} />
         </StyledBurgerContainer>
-
     );
 }
 

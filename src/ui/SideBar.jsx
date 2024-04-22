@@ -18,7 +18,7 @@ const StyledSidebar = styled.aside`
 
   @media(max-width: 768px){
     position: absolute;
-    height: 100vh;
+    height: calc(100vh - 8rem);
     margin-top: 7.9rem;
   }
 `;

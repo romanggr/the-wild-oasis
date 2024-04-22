@@ -38,7 +38,7 @@ const AppLayout = () => {
             <SideBar />
             <Main>
                 <Container>
-                    <Outlet />
+                    {/*<Outlet />*/}
                 </Container>
             </Main>
         </StyledAppLayout>

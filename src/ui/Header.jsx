@@ -21,7 +21,6 @@ const StyledHeader = styled.header`
     align-items: center;
     justify-content: space-between;
     padding: 1rem 2rem 0.5rem;
-    border: none;
   }
   @media(max-width: 450px){
     gap: 1rem;
