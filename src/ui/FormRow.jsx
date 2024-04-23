@@ -32,7 +32,7 @@ const StyledFormRow = styled.div`
   }
 
   @media(max-width: 560px){
-    grid-template-columns: 8fr 1fr 1fr;
+    grid-template-columns: 8rem 35vw 1fr;
     
   }
 `;

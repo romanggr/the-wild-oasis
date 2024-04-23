@@ -7,9 +7,15 @@ const Input = styled.input`
   background-color:var(--color-grey-0);
   box-shadow:var(--shadow-sm);
 
+  
+  &:-webkit-autofill {
+    -webkit-text-fill-color: var(--color-grey-700);
+    transition: background-color 5000s ease-in-out 0s;
+  }
+  
   @media(max-width: 560px){
-    padding:0.4rem 1.2rem;
-    font-size: 1rem;
+    padding:0.4rem 0.5rem;
+    font-size: 0.8rem;
   }
 `
 
