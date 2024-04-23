@@ -15,6 +15,7 @@ const StyledHeader = styled.header`
   gap: 2.4rem;
   align-items: center;
   justify-content: flex-end;
+  height: 6rem;
 
   @media(max-width: 768px){
     gap: 2.4rem;
@@ -22,6 +23,7 @@ const StyledHeader = styled.header`
     justify-content: space-between;
     padding: 1rem 2rem 0.5rem;
   }
+  
   @media(max-width: 450px){
     gap: 1rem;
     padding: 1rem 1rem 0.5rem;
@@ -37,20 +39,7 @@ const ToolBar = styled.div`
 
   @media(max-width: 450px){
     gap: 1rem;
-
   }
-`
-
-const BurgerLogo = styled.div`
-  display: flex;
-  gap: 2.4rem;
-  align-items: center;
-
-  @media(max-width: 450px){
-    gap: 1rem;
-
-  }
-  
 `
 
 
@@ -60,10 +49,7 @@ function Header() {
         <StyledHeader>
             {isMobile ?
                 <>
-               <BurgerLogo>
                    <Burger />
-                   <Logo />
-               </BurgerLogo>
                     <ToolBar>
                         <UserAvatar />
                         <HeaderMenu />

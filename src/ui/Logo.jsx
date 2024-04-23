@@ -10,7 +10,7 @@ const Img = styled.img`
   width: auto;
   
   @media(max-width: 768px){
-    height: 5.5rem;
+    height: 7rem;
   }
 `;
 

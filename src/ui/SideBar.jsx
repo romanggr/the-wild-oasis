@@ -18,8 +18,10 @@ const StyledSidebar = styled.aside`
 
   @media(max-width: 768px){
     position: absolute;
-    height: calc(100vh - 8rem);
-    margin-top: 7.9rem;
+    height: calc(100vh - 6rem);
+    margin-top: 6rem;
+    padding: 2rem 2.4rem;
+    gap: 2rem;
   }
 `;
 
@@ -30,7 +32,7 @@ function Sidebar() {
     return (
         (!isMobile || (isMobile && isBurger)) ? (
             <StyledSidebar>
-                {isMobile ? null : <Logo/>}
+                <Logo/>
                 <MainNav/>
                  {/*<Uploader />*/}
             </StyledSidebar>
