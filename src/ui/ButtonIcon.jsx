@@ -16,6 +16,8 @@ const ButtonIcon = styled.button`
     height: 2.2rem;
     color: var(--color-brand-600);
   }
+
+ 
 `;
 
 export default ButtonIcon;

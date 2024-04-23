@@ -25,15 +25,33 @@ const StyledFormRow = styled.div`
     justify-content: flex-end;
     gap: 1.2rem;
   }
+
+  @media(max-width: 968px){
+    grid-template-columns: 16rem 1fr 1.2fr;
+    gap: 1.2rem;
+  }
+
+  @media(max-width: 560px){
+    grid-template-columns: 8fr 1fr 1fr;
+    
+  }
 `;
 
 const Label = styled.label`
   font-weight: 500;
+  
+  @media(max-width: 560px){
+    font-size: 1rem;
+  }
 `;
 
 const Error = styled.span`
   font-size: 1.4rem;
   color: var(--color-red-700);
+
+  @media(max-width: 560px){
+    font-size: 1rem;
+  }
 `;
 
 function FormRow({ label, error, children }) {
