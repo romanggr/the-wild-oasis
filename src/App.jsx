@@ -33,7 +33,6 @@ function App() {
     <DarkModeProvider>
       <BurgerProvider>
       <QueryClientProvider client={queryClient}>
-        <ReactQueryDevtools />
         <GlobalStyles />
         <BrowserRouter>
           <Routes>

@@ -19,6 +19,15 @@ const FileInput = styled.input.attrs({ type: "file" })`
     &:hover {
       background-color: var(--color-brand-700);
     }
+
+    @media(max-width: 768px){
+      padding: 0.4rem 0.6rem;
+      font-size: 1rem;
+    }
+
+    //@media(max-width: 560px){
+    //  padding: 0.8rem 1.2rem;
+    //}
   }
 `;
 
