@@ -13,6 +13,11 @@ const LoginLayout = styled.main`
   justify-content: center;
   gap: 3.2rem;
   background-color: var(--color-grey-50);
+  
+  @media(max-width: 560px){
+    grid-template-columns: 85vw;
+    
+  }
 `;
 
 function Login() {
