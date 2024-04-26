@@ -33,7 +33,7 @@ const CabinTable = () => {
   if (isLoading) return <Spinner />
   return (
     <Menus>
-      <Table columns="0.6fr 1.8fr 2.2fr 1fr 1fr 1fr">
+      <Table columns="1fr 1fr 3fr 1fr 1fr 0.5fr">
         <Table.Header role="row">
           <div></div>
           <div>Cabin</div>

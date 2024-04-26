@@ -27,6 +27,16 @@ const StyledToggle = styled.button`
     height: 2.4rem;
     color: var(--color-grey-700);
   }
+  
+  @media(max-width: 560px){
+    padding: 0;
+    
+    & svg {
+      width: 1.4rem;
+      height: 1.4rem;
+
+    }
+  }
 `;
 
 const StyledList = styled.ul`
