@@ -6,6 +6,14 @@ const BurgerContext = createContext();
 function BurgerProvider({ children }) {
     const [isBurger, setIsBurger] = useState(false);
 
+    useEffect(function () {
+        if (isBurger) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+    }, [isBurger])
+
     function toggleBurger() {
         setIsBurger(prev => !prev)
     }
