@@ -5,12 +5,10 @@ import { HiEye } from "react-icons/hi"
 import Tag from "../../ui/Tag";
 import Table from "../../ui/Table";
 
-import { formatCurrency } from "../../utils/helpers";
 import { formatDistanceFromNow } from "../../utils/helpers";
 import Menus from "../../ui/Menus";
 import { useNavigate } from "react-router-dom";
 import { HiArrowDownOnSquare, HiArrowUpOnSquare, HiTrash } from "react-icons/hi2";
-import { useState } from "react";
 import { useCheckout } from "../check-in-out/useCheckout";
 import Modal from "../../ui/Modal";
 import ConfirmDelete from "../../ui/ConfirmDelete";
@@ -21,6 +19,14 @@ const Cabin = styled.div`
   font-weight: 600;
   color: var(--color-grey-600);
   font-family: "Sono";
+  
+  @media(max-width: 986px){
+    font-size: 1.2rem;
+  }
+
+  @media(max-width: 425px){
+    font-size: 0.8rem;
+  }
 `;
 
 const Stacked = styled.div`
@@ -36,22 +42,44 @@ const Stacked = styled.div`
     color: var(--color-grey-500);
     font-size: 1.2rem;
   }
+
+  @media(max-width: 986px){
+    gap: 0.1rem;
+    
+    & span:first-child {
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    & span:last-child {
+      color: var(--color-grey-500);
+      font-size: 0.8rem;
+    }
+  }
+
+  @media(max-width: 425px){
+    gap: 0.1rem;
+
+    & span:first-child {
+      font-weight: 500;
+      font-size: 0.8rem;
+    }
+
+    & span:last-child {
+      color: var(--color-grey-500);
+      font-size: 0.6rem;
+    }
+  }
 `;
 
-const Amount = styled.div`
-  font-family: "Sono";
-  font-weight: 500;
-`;
+
 
 function BookingRow({
   booking: {
     id: bookingId,
-    created_at,
     startDate,
     endDate,
     numNights,
-    numGuests,
-    totalPrice,
     status,
     guests: { fullName: guestName, email },
     cabins: { name: cabinName },
@@ -93,7 +121,6 @@ function BookingRow({
 
           <Tag type={statusToTagName[status]}>{status.replace("-", " ")}</Tag>
 
-          <Amount>{formatCurrency(totalPrice)}</Amount>
           <Menus.Menu>
             <Menus.Toggle id={bookingId} />
             <Menus.List id={bookingId} >

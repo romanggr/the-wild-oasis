@@ -1,7 +1,26 @@
 import SortBy from "../../ui/SortBy";
 import Filter from "../../ui/Filter";
-import TableOperations from "../../ui/TableOperations";
+import styled from "styled-components";
 
+
+const TableOperations = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+
+  @media(max-width: 560px){
+    gap: 0.6rem;
+  }
+  
+  @media(max-width: 450px){
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+    
+  }
+
+
+`;
 function BookingTableOperations() {
   return (
     <TableOperations>

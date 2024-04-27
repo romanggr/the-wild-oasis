@@ -22,12 +22,13 @@ const CommonRow = styled.div`
   transition: none;
   
   @media(max-width: 560px){
-    column-gap: 1rem;
+    column-gap: 0.8rem;
   }
 `;
 
 const StyledHeader = styled(CommonRow)`
   padding: 1.6rem 2.4rem;
+
 
   background-color: var(--color-grey-50);
   border-bottom: 1px solid var(--color-grey-100);
@@ -38,6 +39,7 @@ const StyledHeader = styled(CommonRow)`
 
   @media(max-width: 560px){
     font-size: 0.8rem;
+    padding: 1.6rem 1.5rem 1.6rem 1rem;
   }
   
 `;
@@ -49,6 +51,9 @@ const StyledRow = styled(CommonRow)`
     border-bottom: 1px solid var(--color-grey-100);
   }
   
+  @media(max-width: 560px){
+    padding: 1.6rem 2rem 1.6rem 1rem;
+  }
 `;
 
 const StyledBody = styled.section`

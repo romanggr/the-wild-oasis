@@ -18,6 +18,11 @@ const P = styled.p`
   & span {
     font-weight: 600;
   }
+
+  @media(max-width: 500px){
+    margin-left: 0.1rem;
+    font-size: 1rem;
+  }
 `;
 
 const Buttons = styled.div`
@@ -57,6 +62,26 @@ const PaginationButton = styled.button`
   &:hover:not(:disabled) {
     background-color: var(--color-brand-600);
     color: var(--color-brand-50);
+  }
+
+  @media(max-width: 500px){
+    font-size: 1rem;
+    
+    gap: 0.2rem;
+    padding: 0.4rem 1rem;
+
+    &:has(span:last-child) {
+      padding-left: 0.3rem;
+    }
+
+    &:has(span:first-child) {
+      padding-right: 0.3rem;
+    }
+
+    & svg {
+      height: 1.2rem;
+      width: 1.2rem;
+    }
   }
 `;
 
