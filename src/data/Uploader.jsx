@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { isFuture, isPast, isToday } from "date-fns";
+import {useEffect, useState} from "react";
+import {isFuture, isPast, isSaturday, isToday} from "date-fns";
 import supabase from "../services/supabase";
 import Button from "../ui/Button";
 import { subtractDates } from "../utils/helpers";
@@ -8,12 +8,6 @@ import { bookings } from "./data-bookings";
 import { cabins } from "./data-cabins";
 import { guests } from "./data-guests";
 
-// const originalSettings = {
-//   minBookingLength: 3,
-//   maxBookingLength: 30,
-//   maxGuestsPerBooking: 10,
-//   breakfastPrice: 15,
-// };
 
 async function deleteGuests() {
   const { error } = await supabase.from("guests").delete().gt("id", 0);
@@ -103,6 +97,11 @@ async function createBookings() {
 function Uploader() {
   const [isLoading, setIsLoading] = useState(false);
 
+  useEffect(() => {
+   if( isSaturday(new Date())){
+     uploadAll()
+   }
+  }, []);
   async function uploadAll() {
     setIsLoading(true);
     // Bookings need to be deleted FIRST
@@ -114,6 +113,16 @@ function Uploader() {
     await createGuests();
     await createCabins();
     await createBookings();
+
+    setIsLoading(false);
+  }
+
+  async function deleteAll() {
+    setIsLoading(true);
+
+    await deleteBookings();
+    await deleteGuests();
+    await deleteCabins();
 
     setIsLoading(false);
   }
@@ -133,9 +142,10 @@ function Uploader() {
         padding: "8px",
         borderRadius: "5px",
         textAlign: "center",
-        display: "flex",
+        display: "none",
         flexDirection: "column",
         gap: "8px",
+
       }}
     >
       <h3>SAMPLE DATA</h3>
@@ -144,8 +154,8 @@ function Uploader() {
         Upload ALL
       </Button>
 
-      <Button onClick={uploadBookings} disabled={isLoading}>
-        Upload bookings ONLY
+      <Button onClick={deleteAll} disabled={isLoading}>
+        Delete all data
       </Button>
     </div>
   );

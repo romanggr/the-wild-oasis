@@ -4,6 +4,8 @@ import MainNav from "./MainNav";
 import Uploader from "../data/Uploader";
 import {useIsMobile} from "../hooks/useIsMobile.js";
 import {useBurger} from "../context/BurgerContext.jsx";
+import { isSaturday} from "date-fns";
+
 
 const StyledSidebar = styled.aside`
   background-color: var(--color-grey-0);
@@ -35,7 +37,7 @@ function Sidebar() {
             <StyledSidebar>
                 <Logo/>
                 <MainNav/>
-                 {/*<Uploader />*/}
+                 <Uploader />
             </StyledSidebar>
         ) : null
     );
