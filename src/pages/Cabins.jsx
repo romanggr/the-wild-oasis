@@ -6,15 +6,27 @@ import CabinTableOperations from "../ui/CabinTableOperations";
 import styled from "styled-components";
 
 
+const StyledOperations = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  @media(max-width: 1100px){
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+    
+  }
+`
 
 function Cabins() {
 
   return (
     <>
-      <Row type="horizontal">
+      <StyledOperations>
         <Heading as="h1">All cabins</Heading>
-        {/*<CabinTableOperations />*/}
-      </Row>
+        <CabinTableOperations />
+      </StyledOperations>
       <Row>
         <CabinTable />
         <AddCabin />

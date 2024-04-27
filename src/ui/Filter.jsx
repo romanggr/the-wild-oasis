@@ -26,13 +26,21 @@ const FilterButton = styled.button`
   border-radius: var(--border-radius-sm);
   font-weight: 500;
   font-size: 1.4rem;
-  /* To give the same height as select */
   padding: 0.44rem 0.8rem;
   transition: all 0.3s;
 
   &:hover:not(:disabled) {
     background-color: var(--color-brand-600);
     color: var(--color-brand-50);
+  }
+  
+  @media(max-width: 868px){
+    font-size: 1.05rem;
+    
+  }
+  
+  @media(max-width: 500px){
+    font-size: 0.8rem;
   }
 `;
 
