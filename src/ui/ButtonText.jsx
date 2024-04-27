@@ -13,6 +13,10 @@ const ButtonText = styled.button`
   &:active {
     color: var(--color-brand-700);
   }
+  
+  @media(max-width: 560px){
+    font-size: 1.4rem;
+  }
 `;
 
 export default ButtonText;

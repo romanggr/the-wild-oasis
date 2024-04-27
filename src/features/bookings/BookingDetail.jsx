@@ -23,6 +23,28 @@ const HeadingGroup = styled.div`
   display: flex;
   gap: 2.4rem;
   align-items: center;
+
+  @media(max-width: 425px){
+    gap: 1rem;
+  }
+`;
+
+const StyledTag = styled.span`
+  width: fit-content;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.4rem 1.2rem;
+  border-radius: 100px;
+
+  /* Make these dynamic, based on the received prop */
+  color: var(--color-${(props) => props.type}-700);
+  background-color: var(--color-${(props) => props.type}-100);
+
+  @media(max-width: 425px){
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
 `;
 
 function BookingDetail() {
@@ -46,7 +68,7 @@ function BookingDetail() {
       <Row type="horizontal">
         <HeadingGroup>
           <Heading as="h1">Booking {bookingId}</Heading>
-          <Tag type={statusToTagName[status]}>{status.replace("-", " ")}</Tag>
+          <StyledTag type={statusToTagName[status]}>{status.replace("-", " ")}</StyledTag>
         </HeadingGroup>
         <ButtonText onClick={moveBack}>&larr; Back</ButtonText>
       </Row>

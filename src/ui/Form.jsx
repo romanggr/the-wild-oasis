@@ -19,7 +19,7 @@ const Form = styled.form`
   ${(props) =>
     props.type === "modal" &&
     css`
-      width: 80vw;
+      width: 65vw;
       max-width: 80rem;
     `}
     

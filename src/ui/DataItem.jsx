@@ -18,6 +18,15 @@ const Label = styled.span`
     height: 2rem;
     color: var(--color-brand-600);
   }
+
+  @media(max-width: 560px){
+    font-size: 1.4rem;
+    
+    & span{
+      font-size: 1.4rem;
+      
+    }
+  }
 `;
 
 function DataItem({ icon, label, children }) {
