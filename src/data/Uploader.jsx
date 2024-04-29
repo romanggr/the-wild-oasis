@@ -145,7 +145,7 @@ function Uploader() {
         padding: "8px",
         borderRadius: "5px",
         textAlign: "center",
-        display: "flex",
+        display: "none",
         flexDirection: "column",
         gap: "8px",
 

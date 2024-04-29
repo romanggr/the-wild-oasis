@@ -2,9 +2,14 @@ import styled from "styled-components";
 
 const StyledDataItem = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 1.6rem;
   padding: 0.8rem 0;
+  
+  @media(max-width: 560px){
+    font-size: 1.2rem;
+  }
+  
 `;
 
 const Label = styled.span`
@@ -18,10 +23,9 @@ const Label = styled.span`
     height: 2rem;
     color: var(--color-brand-600);
   }
-
+  
+  
   @media(max-width: 560px){
-    font-size: 1.4rem;
-    
     & span{
       font-size: 1.4rem;
       
