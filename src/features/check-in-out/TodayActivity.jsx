@@ -5,7 +5,6 @@ import Row from "../../ui/Row";
 import {useTodayActivity} from "./useTodayActivity";
 import Spinner from "../../ui/Spinner";
 import TodayItem from "./TodayItem";
-import {useIsMobile} from "../../hooks/useIsMobile.js";
 
 const StyledToday = styled.div`
   /* Box */
