@@ -14,9 +14,9 @@ import { useDarkMode } from "../../context/DarkModeContext";
 import { eachDayOfInterval, format, isSameDay, subDays } from "date-fns";
 
 const StyledSalesChart = styled(DashboardBox)`
-  grid-column: 1 / -1;
+  grid-column: span 4;
 
-  /* Hack to change grid line colors */
+  /* Change grid line colors */
   & .recharts-cartesian-grid-horizontal line,
   & .recharts-cartesian-grid-vertical line {
     stroke: var(--color-grey-300);

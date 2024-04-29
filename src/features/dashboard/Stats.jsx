@@ -6,6 +6,24 @@ import {
 } from "react-icons/hi2";
 import Stat from "./Stat";
 import { formatCurrency } from "../../utils/helpers";
+import styled from "styled-components";
+
+const StatsContainer = styled.div`
+  grid-column: span 4;
+  gap: 2.4rem;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  
+  @media(max-width: 1200px){
+    grid-template-columns: 1fr 1fr;
+    
+  }
+  
+  @media(max-width: 560px){
+    gap: 1rem;
+  }
+`
 
 function Stats({ bookings, confirmedStays, numDays, cabinCount }) {
     // 1.
@@ -24,7 +42,7 @@ function Stats({ bookings, confirmedStays, numDays, cabinCount }) {
     // num checked in nights / all available nights (num days * num cabins)
 
     return (
-        <>
+        <StatsContainer>
             <Stat
                 title="Bookings"
                 color="blue"
@@ -47,9 +65,9 @@ function Stats({ bookings, confirmedStays, numDays, cabinCount }) {
                 title="Occupancy rate"
                 color="yellow"
                 icon={<HiOutlineChartBar />}
-                value={Math.round(occupation * 100) + "%"}
+                value={isNaN(occupation) ? "0%" : Math.round(occupation * 100) + "%"}
             />
-        </>
+        </StatsContainer>
     );
 }
 

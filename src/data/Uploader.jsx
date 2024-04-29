@@ -101,6 +101,9 @@ function Uploader() {
    if( isSaturday(new Date())){
      uploadAll()
    }
+   //  if( true){
+   //    uploadAll()
+   //  }
   }, []);
   async function uploadAll() {
     setIsLoading(true);
@@ -142,7 +145,7 @@ function Uploader() {
         padding: "8px",
         borderRadius: "5px",
         textAlign: "center",
-        display: "none",
+        display: "flex",
         flexDirection: "column",
         gap: "8px",
 

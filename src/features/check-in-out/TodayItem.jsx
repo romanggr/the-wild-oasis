@@ -19,6 +19,10 @@ const StyledTodayItem = styled.li`
   &:first-child {
     border-top: 1px solid var(--color-grey-100);
   }
+
+@media(max-width: 560px){
+  font-size: 1rem;
+}
 `;
 
 const Guest = styled.div`
@@ -30,8 +34,8 @@ function TodayItem({ activity }) {
 
   return (
     <StyledTodayItem>
-      {status === "unconfirmed" && <Tag type="green">Arriving</Tag>}
-      {status === "checked-in" && <Tag type="blue">Departing</Tag>}
+      {status === "unconfirmed" && <Tag size={"medium"} type="green">Arriving</Tag>}
+      {status === "checked-in" && <Tag size={"medium"} type="blue">Departing</Tag>}
 
       <Flag src={guests.countryFlag} alt={`Flag of ${guests.country}`} />
       <Guest>{guests.fullName}</Guest>

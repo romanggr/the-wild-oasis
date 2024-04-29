@@ -9,6 +9,7 @@ import {
   Tooltip,
 } from "recharts";
 import { useDarkMode } from "../../context/DarkModeContext";
+import {useIsMobile} from "../../hooks/useIsMobile.js";
 
 const ChartBox = styled.div`
   /* Box */
@@ -17,7 +18,7 @@ const ChartBox = styled.div`
   border-radius: var(--border-radius-md);
 
   padding: 2.4rem 3.2rem;
-  grid-column: 3 / span 2;
+  grid-column: span 2;
 
   & > *:first-child {
     margin-bottom: 1.6rem;
@@ -25,6 +26,18 @@ const ChartBox = styled.div`
 
   & .recharts-pie-label-text {
     font-weight: 600;
+  }
+  
+  @media(max-width: 1400px){
+    grid-column: span 3;
+  }
+
+  @media(max-width: 1200px){
+    grid-column: span 4;
+  }
+  
+  @media(max-width: 560px){
+    padding: 2.4rem 1.2rem;
   }
 `;
 
@@ -143,6 +156,7 @@ function prepareData(startData, stays) {
 
 function DurationChart({ confirmedStays }) {
   const { isDarkMode } = useDarkMode();
+  const {isMobile} = useIsMobile();
   const startData = isDarkMode ? startDataDark : startDataLight;
   const data = prepareData(startData, confirmedStays);
 
@@ -155,8 +169,8 @@ function DurationChart({ confirmedStays }) {
             data={data}
             nameKey="duration"
             dataKey="value"
-            innerRadius={85}
-            outerRadius={110}
+            innerRadius={isMobile ? 45 :85}
+            outerRadius={isMobile ? 65 :110}
             cx="40%"
             cy="50%"
             paddingAngle={3}
@@ -173,9 +187,9 @@ function DurationChart({ confirmedStays }) {
           <Legend
             verticalAlign="middle"
             align="right"
-            width="30%"
+            width={isMobile ? "40%" : "30%"}
             layout="vertical"
-            iconSize={15}
+            iconSize={isMobile ? 8 : 15}
             iconType="circle"
           />
         </PieChart>
