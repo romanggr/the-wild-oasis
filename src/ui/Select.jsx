@@ -12,14 +12,18 @@ const StyledSelect = styled.select`
   background-color: var(--color-grey-0);
   font-weight: 500;
   box-shadow: var(--shadow-sm);
+  height: 4rem;
 
   @media(max-width: 868px){
     font-size: 1.05rem;
+    height: 3.4rem;
+    
   }
 
   @media(max-width: 500px){
     font-size: 0.8rem;
     padding: 0.8rem 0.5rem;
+    height: 3rem;
     
   }
 `;
